@@ -57,6 +57,8 @@ export default function App() {
     axios.get(url).then(setAspects)
     url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=metric`
     axios.get(url).then(populateForecasts)
+    let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=${limit}&appid=${apiKey}`
+    axios.get(apiUrl).then(updateLocale)
 
   }
   function populatingForecasts(input,response){
@@ -121,8 +123,6 @@ export default function App() {
     console.log(response)
     let newDay = newDate.getDay()
     let fullDate = daysOfTheWeek[newDay]+', ' + newDate.getDate() + '/' + newDate.getMonth() + '/' + newDate.getFullYear();
-    let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=${limit}&appid=${apiKey}`
-    axios.get(apiUrl).then(updateLocale)
     setDate(fullDate)
     setLat(response.data.coord.lat)
     setLong(response.data.coord.lon)
@@ -132,6 +132,7 @@ export default function App() {
     setWind(response.data.wind.speed)
     setPressure(response.data.main.pressure)
     setTemperature(response.data.main.temp)
+    
   }
   function handleChange(event){
     setSearchInput(event.target.value)
