@@ -57,7 +57,7 @@ export default function App() {
     axios.get(url).then(setAspects)
     url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=metric`
     axios.get(url).then(populateForecasts)
-    let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=${limit}&appid=${apiKey}`
+    let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=${limit}&appid=${apiKey}`
     axios.get(apiUrl).then(updateLocale)
 
   }
