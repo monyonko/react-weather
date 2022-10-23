@@ -114,6 +114,7 @@ export default function App() {
   function updateLocale(response){
     console.log(response)
     setLocation(response.data[0].name)
+    console.log(location)
     
   }
   function setAspects(response){
@@ -149,7 +150,7 @@ export default function App() {
     });
     });
 }
-console.log(location)
+
   return (
     <div className="App">  
       <header className="App-header">
