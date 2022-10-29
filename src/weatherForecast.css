@@ -1,0 +1,29 @@
+.forecast-aspects{
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+.temp-section {
+    display: flex;
+    justify-content: space-between;   
+}
+.temp-section .forecast-min-temp{
+    margin-right: 3vh;
+}
+
+.forecast-aspect{
+    font-size: 2vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity:0.7;
+}
+.forecast-individual-section canvas{
+    margin: 0;
+    height:24px;
+    width: 24px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+

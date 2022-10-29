@@ -1,12 +1,24 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap');
+.App{
+  margin: 2vh;
+}
+.contain{
   display:block;
-  margin: 2vh auto;
-  height: 40vh;
-  width: 40vw;
+  margin: 0 auto;
+  height: fit-content;
+  width: 50vw;
   border: 1px solid black;
-  border-radius: 0.1vh;
+  border-radius: 0.6vh;
   box-shadow: 0 0 0 0.5 rgb(230, 215, 215);
   padding: 2vh; 
+  font-family: sans-serif;
+
+}
+.link{
+  text-align: center;
+  margin: 2vh auto;
+  font-size: 2vh;
+  
 }
 .App-header{
   margin-left: 15%;
@@ -52,50 +64,56 @@
   border-radius: 0.3vh;
   border: 1px solid black;
 }
-
-.weather-results{
-  height: 20vh;
+.day-weather{
   display: flex;
 }
-.weather-results p {
+.day-weather .left{
+  flex:2;
+}
+.day-weather .right{
+  flex:1;
+}
+.right-aspects{
+  margin-top: 5vh;
+}
+.aspect{
+  font-size: 2.5vh;
   margin: 0;
-  padding: 0;
-}
-.weather-results div{
-  flex: 1;
-}
-.aspect-font{
-  font-size: 2vh;
-}
-.date-font{
-  font-size: 2vh;
-  font-weight: bold;
-}
-.locale-font{
-  font-size: 3vh;
+  text-transform: capitalize;
   opacity: 0.8;
 }
-.temperature-section{
+.second-class-aspects{
+  font-size: 3vh;
+  opacity: 0.5;
+  margin:0
+}
+.temp{
+  font-size:8vh;
+  margin:0;
+  font-family: 'Lato', sans-serif;
+}
+.icon-temp{
+  display: flex;
+}
+
+.icon-temp canvas{
+  height: 32px;
+  width: 32px;
+  
+}
+.day-icon{
   display: block;
   margin: 0 auto;
-  font-size: 6vh;
 }
-.weather-forecast{
-  height: 12vh;
+.dailyWeather, .weather-forecast{
   display:flex;
+  justify-content: space-between;
+  margin-top: 2vh;
 }
-.weather-forecast div{
-  flex: 1;
-  display: block;
-  margin:1vh;
-}
-.weather-forecast p, .weather-forecast div, img, .description{
-  padding: 0;
-  margin:0 auto;
-  display: block;
-}
-.weather-forecast img, .weather-forecast p{
-  padding:0;
-  margin: 0;
-}
+
+
+
+
+
+
 
