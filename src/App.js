@@ -169,7 +169,7 @@ export default function App() {
           <input type="submit" className="current-location" value="Current" onClick={captureLocation}/>
         </section>
         </div>
-        <p className="link"> This project was coded by Monyonko and is open-sourced on Github and hosted on Netlify </p>
+        <p className="link"> This project was coded by Monyonko and is open-sourced on <a href="https://github.com/monyonko/react-weather.git">Github</a> and hosted on <a href="https://vercel.com/monyonko/react-weather">Vercel</a>.</p>
         
         
       </div>
