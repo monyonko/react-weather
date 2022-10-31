@@ -2,6 +2,9 @@
 .App{
   margin: 2vh;
 }
+a{
+  text-decoration: none;
+}
 .contain{
   display:block;
   margin: 0 auto;
