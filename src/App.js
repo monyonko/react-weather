@@ -12,6 +12,7 @@ export default function App() {
   let [searchInput, setSearchInput] = useState(null)
   let [location, setLocation] = useState("")
   let [dayWeather, setDayWeather] = useState({})
+  let [response, setResponse] = useState("")
   let apiKey = "08c521f87119714e709b4af5654ffa5c";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=metric`;
   //let icon = `https://openweathermap.org/img/w/${dayWeather.weatherIcon}.png`;
@@ -43,6 +44,7 @@ export default function App() {
     axios.get(apiUrl).then(updateLocale)
     // let openUrl =  `https://api.openweathermap.org/data/3.0/onecall?lat=${dayWeather.lat}&lon=${dayWeather.long}&exclude=${part}&appid=${newKey}`
     // axios.get(openUrl).then(showMe)
+    event.target.reset();
     setSearchInput("")
   }
   let [forecastData, setForecastData] = useState("");
@@ -70,6 +72,7 @@ export default function App() {
   }
   function setAspects(response){
     console.log(response)
+    setResponse(response)
     let newDay = newDate.getDay()
     let fullDate = daysOfTheWeek[newDay]+', ' + newDate.getDate() + '/' + newDate.getMonth() + '/' + newDate.getFullYear();
     setDayWeather({
@@ -89,6 +92,7 @@ export default function App() {
   }
   function handleChange(event){
     setSearchInput(event.target.value)
+    
 
   }
   function captureLocation(){
@@ -101,7 +105,6 @@ export default function App() {
         let myLocale = response.data[0].name
         console.log(myLocale)
         setSearchInput(myLocale)
-        
         let navigationUrl = `https://api.openweathermap.org/data/2.5/weather?q=${myLocale}&appid=${apiKey}&units=metric`;
         axios.get(navigationUrl).then(setAspects);
         let myUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${myLocale}&appid=${apiKey}&units=metric`
@@ -113,12 +116,14 @@ export default function App() {
 
     });
     });
+
     
     }
-  if(forecastData){
+  if(response){
     return (
       <div className="App"> 
         <div className="contain">
+          
           <header className="App-header">
             <a href="/#">Prev</a>
             <a href="/#">Next</a>
@@ -165,6 +170,7 @@ export default function App() {
   else {
     return(
       <div className="App"> 
+
         <div className="contain">
           <header className="App-header">
             <a href="/#">Prev</a>
