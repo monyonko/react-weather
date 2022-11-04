@@ -109,10 +109,84 @@ a{
   margin: 0 auto;
 }
 .dailyWeather, .weather-forecast{
+  width: 90%;
   display:flex;
   justify-content: space-between;
   margin-top: 2vh;
 }
+@media only screen and (max-width: 830px) {
+  .contain{
+    width: 70vw;
+    
+  }
+  .App-header{
+    font-size: 2vh; 
+  }
+  
+}
+@media only screen and (max-width: 768px){
+
+}
+
+@media only screen and (max-width: 480px){
+  .aspect{
+    font-size: 2vh;
+  }
+  .second-class-aspects{
+    font-size: 3vh;
+  }
+  .temp{
+    font-size: 5vh;
+  }
+
+}
+@media only screen and (max-width: 320px){
+  .App{
+    margin:0;
+    box-sizing: border-box;
+    padding-left: .5vh;
+    padding-right: .2vh;
+  }
+  .contain{
+    box-shadow: 0 0 .8px .8px grey;
+    width: 95vw;
+    margin: 0;
+    padding:0;
+  }
+  .App-header{
+    display:none;
+  }
+  form{
+    margin-left: 0;
+  }
+  .search-bar{
+    width: 40vw;
+    left:0;
+  }
+  .search-submit{
+    width: 15vw;
+    font-size: 1.8vh;
+  }
+  .current-location{
+    width: 17vw;
+    font-size: 1.8vh;
+  }
+  .aspect{
+    font-size: 1.5vh;
+  }
+  .second-class-aspects{
+    font-size: 2vh;
+  }
+  .temp{
+    font-size: 5vh;
+  }
+  .icon-temp canvas{
+    height: 24px;
+    width: 24px;
+    
+  }
+}
+
 
 
 

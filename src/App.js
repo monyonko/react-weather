@@ -49,6 +49,7 @@ export default function App() {
   let [myWeatherData, setMyWeatherData] = useState("")
   let dailyProjections = [];
   function populateForecasts(response){
+    console.log(response)
     let something = response.data.list
     setMyWeatherData(something)
     let i; let sectionedProjections; 
@@ -97,8 +98,18 @@ export default function App() {
       let reverseGeoCodeUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=${limit}&appid=${apiKey}`;
       axios.get(reverseGeoCodeUrl).then((response)=>{
         console.log(response)
-        setSearchInput(response.data[0].name)
-        axios.get(url).then(setAspects);
+        let myLocale = response.data[0].name
+        console.log(myLocale)
+        setSearchInput(myLocale)
+        
+        let navigationUrl = `https://api.openweathermap.org/data/2.5/weather?q=${myLocale}&appid=${apiKey}&units=metric`;
+        axios.get(navigationUrl).then(setAspects);
+        let myUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${myLocale}&appid=${apiKey}&units=metric`
+        axios.get(myUrl).then(populateForecasts)
+        let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${myLocale}&limit=${limit}&appid=${apiKey}`
+        axios.get(apiUrl).then(updateLocale)
+        
+        
 
     });
     });

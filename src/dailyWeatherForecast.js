@@ -4,7 +4,7 @@ import './dailyWeather.css'
 
 
 export default function DailyWeatherForecast(props){
-    let day = ((props.props.dt_txt).split(" "))[1]
+    let day = (((props.props.dt_txt).split(" "))[1]).slice(0,-3)
     let temp = props.props.main.temp
     let icon = props.props.weather[0].icon
     

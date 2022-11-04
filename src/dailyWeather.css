@@ -14,3 +14,8 @@
     display: block;
     margin: 0 auto;
 }
+@media only screen and (max-width: 320px){
+    .dailyAspect{
+        font-size: 1.5vh;
+    }
+}
