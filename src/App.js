@@ -5,7 +5,7 @@ import React from 'react';
 import Weather from './weather';
 import WeatherForecast from './weatherForecast';
 import DailyWeatherForecast from './dailyWeatherForecast';
-
+import AnimatedHeaderText from './animatedText'
 
 
 export default function App() {
@@ -23,6 +23,7 @@ export default function App() {
   let min = newDate.getMinutes();
   let sec = newDate.getSeconds();
   let f = 0
+  let headerText = "Daily Weather Channel"
   if (hrs < 10) {
     hrs = `${f}${hrs}`;
   }
@@ -125,10 +126,7 @@ export default function App() {
         <div className="contain">
           
           <header className="App-header">
-            <a href="/#">Prev</a>
-            <a href="/#">Next</a>
-            <a href="/#">UI mode</a>
-            <a href="/#">Background</a>
+            <AnimatedHeaderText data={headerText}/>
           </header>
         <section className="Search-section">
           <form onSubmit={handleSubmit}>
@@ -172,11 +170,8 @@ export default function App() {
       <div className="App"> 
 
         <div className="contain">
-          <header className="App-header">
-            <a href="/#">Prev</a>
-            <a href="/#">Next</a>
-            <a href="/#">UI mode</a>
-            <a href="/#">Background</a>
+        <header className="App-header">
+          <AnimatedHeaderText data={headerText}/>
         </header>
         <section className="Search-section">
           <form onSubmit={handleSubmit}>
