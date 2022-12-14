@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import React from 'react';
 import Weather from './weather';
@@ -9,10 +9,13 @@ import AnimatedHeaderText from './animatedText'
 
 
 export default function App() {
-  let [searchInput, setSearchInput] = useState(null)
+  let [searchInput, setSearchInput] = useState("Nairobi")
   let [location, setLocation] = useState("")
   let [dayWeather, setDayWeather] = useState({})
   let [response, setResponse] = useState("")
+  let [forecastData, setForecastData] = useState("");
+  let [myWeatherData, setMyWeatherData] = useState("")
+  let dailyProjections = [];
   let apiKey = "08c521f87119714e709b4af5654ffa5c";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=metric`;
   //let icon = `https://openweathermap.org/img/w/${dayWeather.weatherIcon}.png`;
@@ -36,21 +39,22 @@ export default function App() {
   let currentTime = hrs + ":" + min + ":" + sec;
   
 
-  function handleSubmit(event){
-    event.preventDefault();
+  function handleInput(){
     axios.get(url).then(setAspects)
     url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=metric`
     axios.get(url).then(populateForecasts)
     let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=${limit}&appid=${apiKey}`
     axios.get(apiUrl).then(updateLocale)
-    // let openUrl =  `https://api.openweathermap.org/data/3.0/onecall?lat=${dayWeather.lat}&lon=${dayWeather.long}&exclude=${part}&appid=${newKey}`
-    // axios.get(openUrl).then(showMe)
-    event.target.reset();
+
+  }
+  function handleSubmit(event){
+    event.preventDefault(); 
+    handleInput()
+    event.target.reset()
     setSearchInput("")
   }
-  let [forecastData, setForecastData] = useState("");
-  let [myWeatherData, setMyWeatherData] = useState("")
-  let dailyProjections = [];
+  
+ 
   function populateForecasts(response){
     console.log(response)
     let something = response.data.list
@@ -93,8 +97,6 @@ export default function App() {
   }
   function handleChange(event){
     setSearchInput(event.target.value)
-    
-
   }
   function captureLocation(){
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -120,11 +122,15 @@ export default function App() {
 
     
     }
+  
+    useEffect(() => {
+      handleInput()
+    }, [])
+  
   if(response){
     return (
       <div className="App"> 
         <div className="contain">
-          
           <header className="App-header">
             <AnimatedHeaderText data={headerText}/>
           </header>
