@@ -9,7 +9,7 @@ import AnimatedHeaderText from './animatedText'
 
 
 export default function App() {
-  let [searchInput, setSearchInput] = useState("Nairobi")
+  let [searchInput, setSearchInput] = useState("Kinshasa")
   let [location, setLocation] = useState("")
   let [dayWeather, setDayWeather] = useState({})
   let [response, setResponse] = useState("")

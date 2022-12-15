@@ -13,7 +13,7 @@ export default function AnimatedHeaderText(props){
     }}
     animationType="slide"
     interval={0.06}
-    duration={0.8}
+    duration={0.4}
     tag="p"
     className="animated-paragraph"
     includeWhiteSpaces
